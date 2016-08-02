@@ -1,0 +1,20 @@
+{
+  "name": "pagecontroller.js",
+  "description": "Basic ajax page loading and history api",
+  "main": "src/main.js",
+  "authors": [
+    "Gethyn Jones"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "utils.js": "https://github.com/gethyn1/utils.js.git"
+  }
+}

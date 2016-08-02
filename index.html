@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="en-GB">
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Validation</title>
+    <meta name="description" content="Form validation">
+
+    <link rel="stylesheet" type="text/css" href="dist/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+  	<h1>Validation</h1>
+    
+    <form id="form-to-validate">
+      <div class="form-group form-row text" data-validate="required">
+          <label for="fname">Name:*</label>
+          <input id="fname" type="text">
+          <p class="error-info" data-error="required">Name is required</p>
+      </div>
+      <div class="form-group form-row text" data-validate="number">
+          <label for="age">Age:</label>
+          <input id="age" type="text">
+          <p class="error-info" data-error="number">Please enter a number</p>
+      </div>
+      <div class="form-group form-row text" data-validate="required email">
+          <label for="email">Email address:*</label>
+          <input id="email" type="text">
+          <p class="error-info" data-error="required">Email address is required</p>
+          <p class="error-info" data-error="email">Please enter a valid email address</p>
+      </div>
+      <div class="form-group form-row text" data-validate="postcode">
+          <label for="postcode">Postcode:</label>
+          <input id="postcode" type="text">
+          <p class="error-info" data-error="postcode">Please enter a valid postcode</p>
+      </div>
+      <div class="form-group form-row submit">
+          <input type="submit" value="Submit this form">
+      </div>
+    </form>
+  </div>
+
+  <script src="dist/main.js"></script>
+</body>
+</html>
