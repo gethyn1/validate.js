@@ -32,11 +32,11 @@ App.pageInit = () => {
 
 	formToValidate.addEventListener('submit', function(evt) {
 
+		evt.preventDefault();
+
 		if(validate.validateForm(formToValidate)) {
 			window.alert('Good one. This form has no errors.');
 		}
-
-		evt.preventDefault();
 
 	}, false);
 };

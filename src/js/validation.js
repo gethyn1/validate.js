@@ -2,7 +2,16 @@
 
 import * as $ from '../../bower_components/utils.js/utils';
 
-let errorClasses = ['required', 'email', 'postcode', 'number', 'range', 'length'];
+let errorClasses = [
+	'required',
+	'email',
+	'postcode',
+	'postcode_au',
+	'number',
+	'number_with_spaces',
+	'length',
+	'regex'
+];
 
 // Validate a form
 let validateForm = (form) => {
@@ -50,14 +59,46 @@ let validateField = {
 	},
 	email: (input) => {
 		let regExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		return regExp.test(input.value);
+
+		// Only return false if value is entered
+		return input.value ? regExp.test(input.value) : true;
 	},
 	number: (input) => {
-		return input.value && isNaN(input.value) === false;
+		// Only return false if value is entered
+		return input.value ? isNaN(input.value) === false : true;
+	},
+	number_with_spaces: (input) => {
+		let val = input.value.replace(/ /g, '');
+
+		// Only return false if value is entered
+		return val ? isNaN(val) === false : true;
 	},
 	postcode: (input) => {
 		let regExp = /[A-Z]{1,2}[0-9][0-9A-Z]?\s?[0-9][A-Z]{2}/gi;
-		return regExp.test(input.value);
+
+		// Only return false if value is entered
+		return input.value ? regExp.test(input.value) : true;
+	},
+	postcode_au: (input) => {
+		let regExp = /^[0-9]{4}$/;
+
+		// Only return false if value is entered
+		return input.value ? regExp.test(input.value) : true;
+	},
+	length: (input) => {
+		let limit = input.getAttribute('data-validate-length'),
+			length = input.value.length;
+
+		// Only return false if value is entered
+		return input.value ? (length <= limit) : true;
+	},
+	regex: (input) => {
+		let pattern = input.getAttribute('data-validate-pattern'),
+			flag = input.getAttribute('data-validate-flag'),
+			regExp = new RegExp(pattern, flag);
+
+		// Only return false if value is entered
+		return input.value ? regExp.test(input.value) : true;
 	}
 };
 

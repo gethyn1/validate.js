@@ -2,7 +2,7 @@
 
 This is an ES6 script for form validation. The script hides and shows errors already on the page based on validation criteria. The benefit of this approach is greater flexibility when translating field errors on multi-lingual sites.
 
-The script is easily extensible by adding extra teststo the `validateField` object.
+The script is easily extensible by adding extra tests to the `validateField` object.
 
 Current validation tests are *required*, *email*, *postcode*, and *number*.
 
