@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>Simple validation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Simple validation</h1>
+
+      <form id="form-to-validate">
+        <div class="form-group form-row text" data-validate="required">
+            <label for="fname">Name:*</label>
+            <input id="fname" type="text">
+            <p class="error-info" data-error="required">Name is required</p>
+        </div>
+        <div class="form-group form-row text" data-validate="regex">
+            <label for="age">Age:</label>
+            <input id="age" type="text" data-validate-pattern="^([1-9][8-9]|[2-9][0-9]|1[0][0])$" data-validate-flag="i">
+            <p class="error-info" data-error="regex">You must be over 18 and below 100 years of age</p>
+        </div>
+        <div class="form-group form-row text" data-validate="required email">
+            <label for="email">Email address:*</label>
+            <input id="email" type="text">
+            <p class="error-info" data-error="required">Email address is required</p>
+            <p class="error-info" data-error="email">Please enter a valid email address</p>
+        </div>
+        <div class="form-group form-row text" data-validate="postcode">
+            <label for="postcode">Postcode:</label>
+            <input id="postcode" type="text">
+            <p class="error-info" data-error="postcode">Please enter a valid postcode</p>
+        </div>
+        <div class="form-group form-row text" data-validate="number_with_spaces">
+            <label for="telephone">Telephone:</label>
+            <input id="telephone" type="text">
+            <p class="error-info" data-error="number_with_spaces">Please enter a valid telephone number</p>
+        </div>
+        <div class="form-group form-row text" data-validate="number length">
+            <label for="fnum">Favourite number (below 1000):</label>
+            <input id="fnum" type="text" data-validate-length="3">
+            <p class="error-info" data-error="number">Please enter a number</p>
+            <p class="error-info" data-error="length">Please enter a number below 1000</p>
+        </div>
+        <div class="form-group form-row text" data-validate="url">
+            <label for="fnum">Website:</label>
+            <input id="fnum" type="text">
+            <p class="error-info" data-error="url">Please enter a valid url</p>
+        </div>
+        <div class="form-group form-row submit">
+            <input type="submit" value="Submit this form">
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
